@@ -348,11 +348,11 @@
     s = document.querySelectorAll(".range-percent"),
     a = document.querySelectorAll("[data-box]");
   if (i.length > 0) {
-    let u = !0;
-    function d() {
+    let c = !0;
+    function u() {
       i.forEach((t) => {
         const e = t.offsetHeight,
-          n = h(t).top;
+          n = d(t).top;
         let i = (window.innerHeight + e) / 1.1;
         if (
           window.scrollY > n - i &&
@@ -365,11 +365,11 @@
           t.classList.add("_active"),
             i.length > 0 &&
               i.forEach((t) => {
-                u &&
+                c &&
                   window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
                   t.classList.add("_active-range");
               }),
-            u &&
+            c &&
               window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
               s.length > 0 &&
               (s.forEach((t) => {
@@ -381,55 +381,50 @@
                     }, s);
                 })(t.getAttribute("data-percent"), 2e3, t);
               }),
-              (u = !1));
+              (c = !1));
         }
       }),
         a.length > 0 &&
           a.forEach((t) => {
             const e = t.querySelector("[data-work]"),
-              n = h(t).top,
-              i = h(e).top,
-              s = h(document.querySelector("._last-work")).top;
+              n = d(t).top,
+              i = d(e).top,
+              s = d(document.querySelector("._last-work")).top;
             window.scrollY > i - 20
               ? e.classList.add("_stop")
               : window.scrollY < n - 20 && e.classList.remove("_stop"),
               window.scrollY > s - 20 && e.classList.remove("_stop");
           });
     }
-    function h(t) {
+    function d(t) {
       const e = t.getBoundingClientRect(),
         n = window.pageXOffset || document.documentElement.scrollLeft,
         i = window.pageYOffset || document.documentElement.scrollTop;
       return { top: e.top + i, left: e.left + n };
     }
-    window.addEventListener("scroll", d),
+    window.addEventListener("scroll", u),
       setTimeout(() => {
-        d();
+        u();
       }, 300);
   }
-  const o = document.querySelector(".cursor-big"),
-    r = document.querySelector(".cursor"),
-    l = document.querySelector(".cursor-small"),
-    c = document.querySelectorAll("a");
-  c.forEach((t) => {
+  document.querySelector(".cursor-big");
+  const o = document.querySelector(".cursor"),
+    r = document.querySelector(".cursor-small"),
+    l = document.querySelectorAll("a");
+  l.forEach((t) => {
     t.addEventListener("mouseover", () => {
-      o.classList.add("_active-cursor"),
-        r.classList.add("_active-cursor"),
-        l.classList.add("_active-cursor");
+      o.classList.add("_active-cursor"), r.classList.add("_active-cursor");
     });
   }),
-    c.forEach((t) => {
+    l.forEach((t) => {
       t.addEventListener("mouseout", () => {
-        aura.classList.remove("_active-cursor"),
-          r.classList.remove("_active-cursor"),
-          l.classList.remove("_active-cursor");
+        o.classList.remove("_active-cursor"),
+          r.classList.remove("_active-cursor");
       });
     }),
     document.addEventListener("mousemove", (t) => {
-      aura.style.cssText =
-        r.style.cssText =
-        l.style.cssText =
-          "left:" + t.clientX + "px; top:" + t.clientY + "px";
+      o.style.cssText = r.style.cssText =
+        "left:" + t.clientX + "px; top:" + t.clientY + "px";
     }),
     (window.FLS = !0),
     (function (t) {
