@@ -348,11 +348,11 @@
     s = document.querySelectorAll(".range-percent"),
     a = document.querySelectorAll("[data-box]");
   if (i.length > 0) {
-    let l = !0;
-    function c() {
+    let u = !0;
+    function d() {
       i.forEach((t) => {
         const e = t.offsetHeight,
-          n = u(t).top;
+          n = h(t).top;
         let i = (window.innerHeight + e) / 1.1;
         if (
           window.scrollY > n - i &&
@@ -365,11 +365,11 @@
           t.classList.add("_active"),
             i.length > 0 &&
               i.forEach((t) => {
-                l &&
+                u &&
                   window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
                   t.classList.add("_active-range");
               }),
-            l &&
+            u &&
               window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
               s.length > 0 &&
               (s.forEach((t) => {
@@ -381,35 +381,36 @@
                     }, s);
                 })(t.getAttribute("data-percent"), 2e3, t);
               }),
-              (l = !1));
+              (u = !1));
         }
       }),
         a.length > 0 &&
           a.forEach((t) => {
             const e = t.querySelector("[data-work]"),
-              n = u(t).top,
-              i = u(e).top,
-              s = u(document.querySelector("._last-work")).top;
+              n = h(t).top,
+              i = h(e).top,
+              s = h(document.querySelector("._last-work")).top;
             window.scrollY > i - 20
               ? e.classList.add("_stop")
               : window.scrollY < n - 20 && e.classList.remove("_stop"),
               window.scrollY > s - 20 && e.classList.remove("_stop");
           });
     }
-    function u(t) {
+    function h(t) {
       const e = t.getBoundingClientRect(),
         n = window.pageXOffset || document.documentElement.scrollLeft,
         i = window.pageYOffset || document.documentElement.scrollTop;
       return { top: e.top + i, left: e.left + n };
     }
-    window.addEventListener("scroll", c),
+    window.addEventListener("scroll", d),
       setTimeout(() => {
-        c();
+        d();
       }, 300);
   }
   document.querySelector(".cursor-big");
   const o = document.querySelector(".cursor"),
     r = document.querySelectorAll("a");
+  document.querySelectorAll("button");
   r.forEach((t) => {
     t.addEventListener("mouseover", () => {
       o.classList.add("_active-cursor");
@@ -417,13 +418,32 @@
   }),
     r.forEach((t) => {
       t.addEventListener("mouseout", () => {
-        o.classList.remove("_active-cursor"),
-          cursorSmall.classList.remove("_active-cursor");
+        o.classList.remove("_active-cursor");
       });
     }),
     document.addEventListener("mousemove", (t) => {
       o.style.cssText = "left:" + t.clientX + "px; top:" + t.clientY + "px";
-    }),
+    });
+  const l = document.querySelectorAll("._en"),
+    c = document.querySelectorAll("._ua");
+  document.addEventListener("click", (t) => {
+    const e = t.target;
+    e.classList.contains("button_lang") &&
+      !e.classList.add("_active-lang") &&
+      (e.classList.contains("_ua") && !e.classList.add("_active-lang")
+        ? (c.forEach((t) => {
+            t.classList.add("_active-lang");
+          }),
+          l.forEach((t) => {
+            t.classList.remove("_active-lang");
+          }))
+        : (c.forEach((t) => {
+            t.classList.remove("_active-lang");
+          }),
+          l.forEach((t) => {
+            t.classList.add("_active-lang");
+          })));
+  }),
     (window.FLS = !0),
     (function (t) {
       let e = new Image();

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221129112904">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221129195607">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,6 @@
 			</div>
 		</header>
 		<main class="page">
-			<!-- <div id="aura" class="cursor-big"></div> -->
 			<div id="cursor" class="cursor"></div>
 			<div id="cursor-small" class="cursor-small"></div>
 			<section class="hello">
@@ -31,23 +30,48 @@
 								<div class="blur__purple"></div>
 								<div class="blur__pink"></div>
 							</div>
-							<div class="hi__hand-box">
-								<div class="hi__hand-block">
-									<p class="hi__text-hi">👋 Hi!</p>
+							<div class="hi__block-top">
+								<div class="hi__hand-box">
+									<div class="hi__hand-block">
+										<p class="hi__text-hi _en _active-lang">👋 Hi!</p>
+										<p class="hi__text-hi _ua">👋 Привіт!</p>
+									</div>
+								</div>
+								<div id="parent" class="hi__lang-block">
+									<a id="self2" href="#self1" class="hi__lang button_lang _en _active-lang">
+										En
+									</a>
+									<a href="#self1" class="hi__lang button_lang _ua">Укр</a>
 								</div>
 							</div>
 							<div class="hi__title">
 								<div class="hi__title-box">
-									<h1 class="hi__title-text-top">I’m</h1>
+									<h1 class="hi__title-text-top">
+										<span class="_en _active-lang">I’m</span>
+									</h1>
+									<h1 class="hi__title-text-top">
+										<span class="_ua">Я</span>
+									</h1>
 								</div>
 								<div class="hi__title-box">
-									<h1 class="hi__title-text-bottom">Yuriy Makhnitko</h1>
+									<h1 class="hi__title-text-bottom">
+										<span class="_en _active-lang">Yuriy Makhnitko</span>
+									</h1>
+									<h1 class="hi__title-text-bottom">
+										<span class="_ua">Юрій Махнітко</span>
+									</h1>
 								</div>
 							</div>
 							<div class="hi__box-text">
 								<p class="hi__text">
-									I create an adaptive websites to help people go further
-									online. Do you need bespoke website? Then contact me!
+									<span class="_en _active-lang">I create an adaptive websites to help people go further
+										online. Do you need bespoke website? Then contact
+										me!</span>
+								</p>
+								<p class="hi__text">
+									<span class="_ua">Створюю адаптивні сайти, щоби допомагати людям
+										розвиватися у web-всесвіті. Маєте потребу створити таку
+										web-сторінку? Зв'яжіться зі мною!</span>
 								</p>
 							</div>
 							<div class="hi__links">
@@ -70,11 +94,20 @@
 					<div class="row skills__title">
 						<div class="col col_skills-padding">
 							<div class="skills__title-block">
-								<h1 class="skills__title-header">my Skills</h1>
-								<p class="skills__title-text">
+								<h1 class="skills__title-header _en _active-lang">
+									my Skills
+								</h1>
+								<h1 class="skills__title-header _ua">мої Вміння</h1>
+								<p class="skills__title-text _en _active-lang">
 									I've been doing practical works on front-end development for
 									a year now. I use the number of modern tecnologies in my
 									practice and some of my practical works you can see below.
+								</p>
+								<p class="skills__title-text _ua">
+									Вже близько року опановую напрямок Front-End розробки в
+									IT-сфері, використовую низку сучасних web-технологій у своїх
+									роботах. З радістю запрошую ознайомитися з деякими з них
+									трохи нижче.
 								</p>
 							</div>
 						</div>
@@ -170,11 +203,17 @@
 										</div>
 										<div class="work__content">
 											<div class="work__top">
-												<p class="work__text">
+												<p class="work__text _en _active-lang">
 													Sensitive landing of first page for webshop of
 													mountaineering equipment. Practical work whith
 													ussing popular technologies such as: HTML5, CSS3,
 													SASS, JavaScript, GULP.
+												</p>
+												<p class="work__text _ua">
+													Адаптивний лендінг першої сторінки веб-магазину
+													спорядження для активного відпочинку у горах.
+													Практична робота з використанням таких
+													web-технологій: HTML5, CSS3, SASS, JavaScript, GULP.
 												</p>
 											</div>
 											<div class="work__bottom">
@@ -199,11 +238,16 @@
 										</div>
 										<div class="work__content">
 											<div class="work__top">
-												<p class="work__text">
+												<p class="work__text _en _active-lang">
 													Sensitive landing for studio of professional photo
 													and video creation. Practical work whith ussing next
 													technologies: HTML5, CSS3, SASS, Bootstrap 5,
 													JavaScript, GULP.
+												</p>
+												<p class="work__text _ua">
+													Гнучкий лендінг сайту студії професійної фото- та
+													відео-зйомок. Практична робота із застосуванням:
+													HTML5, CSS3, SASS, Bootstrap 5, JavaScript, GULP.
 												</p>
 											</div>
 											<div class="work__bottom">
@@ -228,9 +272,14 @@
 										</div>
 										<div class="work__content">
 											<div class="work__top">
-												<p class="work__text">
+												<p class="work__text _en _active-lang">
 													An adaptive landing for restaurant of healthy food.
 													Practical work whith ussing next technologies:
+													HTML5, CSS3, SASS, JavaScript, GULP.
+												</p>
+												<p class="work__text _ua">
+													Адаптивний лендінг сайту ресторану здорового
+													харчування. Практична робота у якій використано:
 													HTML5, CSS3, SASS, JavaScript, GULP.
 												</p>
 											</div>
@@ -257,8 +306,9 @@
 					<div class="row about__content">
 						<div class="col-md-7 col-sm-12">
 							<div class="about__text">
-								<h1 class="about__title">about me</h1>
-								<p class="about__content-text">
+								<h1 class="about__title _en _active-lang">about me</h1>
+								<h1 class="about__title _ua">про мене</h1>
+								<p class="about__content-text _en _active-lang">
 									Hi again everyone! So, as you already know my name is Yuriy
 									and I from Ukraine, Kyiv. A little more about myself:
 									engineer on heating company, have two wonderful children and
@@ -268,16 +318,40 @@
 									I have. Therefore, coding is the profession of future. At
 									the moment I specialize in front-end development.
 								</p>
-								<p class="about__content-text">
+								<p class="about__content-text _ua">
+									Знову всім привіт! Отже, мене звати Юрій, Я з України. Трохи
+									про себе: випускник "НТУУ "КПІ", факультет ПБФ, наразі
+									працюю у тепломережі на посаді інженера виробничого відділу
+									та маю двох дітей. Програмуванням зацікавився давно, проте
+									активно почав займатися близько року тому. Отож зараз моя
+									думка полягає в тому, що програмування дає можливість
+									створювати дуже цікаві речі, які захоплюють. Це ніби
+									відкриваючи ноутбук, починаєш дивовижну подорож у країну
+									такого-собі "задзеркалля", де можна щось створити, а потім з
+									цікавістю розібрати, як же воно все працює. Окрім того
+									розвиток IT-технологій це те з чим людство йде у майбутнє,
+									тож маю бажання бути частиною цього майбутнього.
+								</p>
+								<p class="about__content-text _en _active-lang">
 									Why should you choose me? I do every my task with great
 									responsibility and pleasure, because I want to do right
 									things and help people with websites.
 								</p>
-								<p class="about__content-text">
+								<p class="about__content-text _ua">
+									На даний час спеціялізуюся на front-end розробці. Маю
+									відповідальне ставлення до кожного завдання бо спрямований
+									робити справді корисні речі.
+								</p>
+								<p class="about__content-text _en _active-lang">
 									By trusting me, you`ll get the maximum return for your
 									project and save your time. If you are interested in me and
 									want to know some more things, I`ll provide my contacts
 									below.
+								</p>
+								<p class="about__content-text _ua">
+									Обираючи мене, ви отримаєте якісний результат та збережете
+									час. Для продуктивної співпраці, зі мною можна зв`язатися за
+									посиланнями нижче. Слава Україні!
 								</p>
 							</div>
 						</div>
@@ -330,7 +404,7 @@
 	</div>
 </div>
  -->
-	<script src="js/app.min.js?_v=20221129112904"></script>
+	<script src="js/app.min.js?_v=20221129195607"></script>
 </body>
 
 </html>
