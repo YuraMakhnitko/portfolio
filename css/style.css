@@ -11415,6 +11415,9 @@ h6,
     column-gap: 24px;
   }
 }
+.hi__link-box {
+  overflow: hidden;
+}
 .hi__yellow-link {
   display: flex;
   padding: 16px 24px;
@@ -11447,11 +11450,12 @@ h6,
   }
 }
 .hi__transparent-link {
+  display: flex;
   padding: 16px 24px;
   border-radius: 28px;
-  border: 1px solid #424030;
+  border: 1px solid;
+  border-color: #424030;
   border-radius: 28px;
-  transition: background-color 0.3s ease 0s;
   animation-name: transparentlink;
   animation-duration: 0.2s;
   animation-timing-function: ease;
@@ -11460,13 +11464,15 @@ h6,
   transform: translate(0%, 110%);
   opacity: 1;
   color: #424030;
-  transition: all 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
+  transition: border-color 0.3s ease 0s;
 }
 @media (any-hover: hover) {
   .hi__transparent-link:hover {
-    transition: all 0.3s ease 0s;
+    border-color: #615e41;
+    transition: color 0.3s ease 0s;
+    transition: border-color 0.3s ease 0s;
     color: #615e41;
-    border: 1px solid #615e41;
   }
 }
 @keyframes transparentlink {
