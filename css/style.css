@@ -11311,7 +11311,7 @@ h6,
   animation-delay: 0.7s;
   animation-fill-mode: forwards;
   opacity: 1;
-  transform: translate(0%, 100%) rotate(0deg);
+  transform: translate(0%, 110%);
 }
 @media (min-width: 76.875em) {
   .hi__title-text-top {
@@ -11330,11 +11330,11 @@ h6,
 }
 @keyframes im {
   from {
-    transform: translate(0%, 100%) rotate(0deg);
+    transform: translate(0%, 110%);
     opacity: 1;
   }
   to {
-    transform: translate(0%, 0%) rotate(0deg);
+    transform: translate(0%, 0%);
     opacity: 1;
   }
 }
@@ -12507,7 +12507,7 @@ h6,
     transform: translate3d(0%, 0%, 1px) rotate(0deg);
   }
 }
-.cursor-small {
+.cursor {
   user-select: none;
   width: 8px;
   height: 8px;
@@ -12521,11 +12521,11 @@ h6,
   z-index: 10000;
   transition: 0.1s ease;
 }
-.cursor-small._active-cursor {
+.cursor._active-cursor {
   transform: translate(-50%, -50%) scale(2);
 }
 @media (max-width: 47.99875em) {
-  .cursor-small {
+  .cursor {
     opacity: 0;
   }
 }

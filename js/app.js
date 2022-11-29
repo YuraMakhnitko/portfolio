@@ -348,11 +348,11 @@
     s = document.querySelectorAll(".range-percent"),
     a = document.querySelectorAll("[data-box]");
   if (i.length > 0) {
-    let c = !0;
-    function u() {
+    let l = !0;
+    function c() {
       i.forEach((t) => {
         const e = t.offsetHeight,
-          n = d(t).top;
+          n = u(t).top;
         let i = (window.innerHeight + e) / 1.1;
         if (
           window.scrollY > n - i &&
@@ -365,11 +365,11 @@
           t.classList.add("_active"),
             i.length > 0 &&
               i.forEach((t) => {
-                c &&
+                l &&
                   window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
                   t.classList.add("_active-range");
               }),
-            c &&
+            l &&
               window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
               s.length > 0 &&
               (s.forEach((t) => {
@@ -381,50 +381,48 @@
                     }, s);
                 })(t.getAttribute("data-percent"), 2e3, t);
               }),
-              (c = !1));
+              (l = !1));
         }
       }),
         a.length > 0 &&
           a.forEach((t) => {
             const e = t.querySelector("[data-work]"),
-              n = d(t).top,
-              i = d(e).top,
-              s = d(document.querySelector("._last-work")).top;
+              n = u(t).top,
+              i = u(e).top,
+              s = u(document.querySelector("._last-work")).top;
             window.scrollY > i - 20
               ? e.classList.add("_stop")
               : window.scrollY < n - 20 && e.classList.remove("_stop"),
               window.scrollY > s - 20 && e.classList.remove("_stop");
           });
     }
-    function d(t) {
+    function u(t) {
       const e = t.getBoundingClientRect(),
         n = window.pageXOffset || document.documentElement.scrollLeft,
         i = window.pageYOffset || document.documentElement.scrollTop;
       return { top: e.top + i, left: e.left + n };
     }
-    window.addEventListener("scroll", u),
+    window.addEventListener("scroll", c),
       setTimeout(() => {
-        u();
+        c();
       }, 300);
   }
   document.querySelector(".cursor-big");
   const o = document.querySelector(".cursor"),
-    r = document.querySelector(".cursor-small"),
-    l = document.querySelectorAll("a");
-  l.forEach((t) => {
+    r = document.querySelectorAll("a");
+  r.forEach((t) => {
     t.addEventListener("mouseover", () => {
-      o.classList.add("_active-cursor"), r.classList.add("_active-cursor");
+      o.classList.add("_active-cursor");
     });
   }),
-    l.forEach((t) => {
+    r.forEach((t) => {
       t.addEventListener("mouseout", () => {
         o.classList.remove("_active-cursor"),
-          r.classList.remove("_active-cursor");
+          cursorSmall.classList.remove("_active-cursor");
       });
     }),
     document.addEventListener("mousemove", (t) => {
-      o.style.cssText = r.style.cssText =
-        "left:" + t.clientX + "px; top:" + t.clientY + "px";
+      o.style.cssText = "left:" + t.clientX + "px; top:" + t.clientY + "px";
     }),
     (window.FLS = !0),
     (function (t) {
