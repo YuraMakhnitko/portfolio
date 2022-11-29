@@ -11195,7 +11195,75 @@ h6,
     font-size: 21px;
   }
   .contacts__message::after {
-    font-size: 4px;
+    font-size: 3px;
+  }
+}
+.contacts__message span {
+  display: none;
+}
+.contacts__message span._active-lang {
+  display: inline-block;
+}
+@media (max-width: 1399.98px) {
+  .contacts__message span._ua {
+    font-size: 58px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .contacts__message span._ua {
+    font-size: 48px;
+  }
+}
+@media (max-width: 991.98px) {
+  .contacts__message span._ua {
+    font-size: 38px;
+  }
+}
+@media (max-width: 767.98px) {
+  .contacts__message span._ua {
+    font-size: 28px;
+  }
+}
+@media (max-width: 539.98px) {
+  .contacts__message span._ua {
+    font-size: 26px;
+  }
+}
+@media (max-width: 507.98px) {
+  .contacts__message span._ua {
+    font-size: 22px;
+  }
+}
+@media (max-width: 452.98px) {
+  .contacts__message span._ua {
+    font-size: 18px;
+  }
+  .contacts__message span._ua::after {
+    font-size: 6px;
+  }
+}
+@media (max-width: 452.98px) {
+  .contacts__message span._ua {
+    font-size: 18px;
+  }
+  .contacts__message span._ua::after {
+    font-size: 6px;
+  }
+}
+@media (max-width: 404.98px) {
+  .contacts__message span._ua {
+    font-size: 18px;
+  }
+  .contacts__message span._ua::after {
+    font-size: 5px;
+  }
+}
+@media (max-width: 371.98px) {
+  .contacts__message span._ua {
+    font-size: 16px;
+  }
+  .contacts__message span._ua::after {
+    font-size: 50px;
   }
 }
 
