@@ -11267,6 +11267,9 @@ h6,
   }
 }
 
+.hi {
+  position: relative;
+}
 @media (min-width: 76.875em) {
   .hi {
     padding-top: 7.5rem;
@@ -11464,7 +11467,6 @@ h6,
   animation-timing-function: ease;
   animation-delay: 0.7s;
   animation-fill-mode: forwards;
-  opacity: 1;
   transform: translate(0%, 120%);
 }
 @media (min-width: 76.875em) {
@@ -11485,11 +11487,9 @@ h6,
 @keyframes ym {
   from {
     transform: translate(0%, 120%);
-    opacity: 1;
   }
   to {
     transform: translate(0%, 0%);
-    opacity: 1;
   }
 }
 .hi__box-text {
@@ -11560,7 +11560,6 @@ h6,
   animation-fill-mode: forwards;
   transform: translate(0%, 110%);
   color: #424030;
-  opacity: 1;
 }
 @media (any-hover: hover) {
   .hi__yellow-link:hover {
@@ -11575,7 +11574,6 @@ h6,
   }
   to {
     transform: translate(0%, 0%);
-    opacity: 1;
   }
 }
 .hi__transparent-link {
@@ -11591,7 +11589,6 @@ h6,
   animation-delay: 1.4s;
   animation-fill-mode: forwards;
   transform: translate(0%, 110%);
-  opacity: 1;
   color: #424030;
   transition: color 0.3s ease 0s;
   transition: border-color 0.3s ease 0s;
@@ -11606,18 +11603,16 @@ h6,
 }
 @keyframes transparentlink {
   from {
-    opacity: 1;
     transform: translate(0%, 110%);
   }
   to {
     transform: translate(0%, 0%);
-    opacity: 1;
   }
 }
 .hi__arrow {
   position: absolute;
-  bottom: -20%;
-  left: 90%;
+  bottom: -23%;
+  left: 50%;
   height: 150px;
   width: 50px;
   overflow: hidden;
@@ -12427,9 +12422,6 @@ h6,
   z-index: 0;
 }
 
-.hi {
-  position: relative;
-}
 .blur {
   position: absolute;
   top: 0;
@@ -12679,8 +12671,6 @@ h6,
 .cursor._active-cursor {
   transform: translate(-50%, -50%) scale(2);
 }
-@media (max-width: 47.99875em) {
-  .cursor {
-    opacity: 0;
-  }
+.cursor.touch {
+  opacity: 0;
 }

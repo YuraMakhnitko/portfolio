@@ -39,15 +39,15 @@
     for (let e = 0; e < this.mediaQueries.length; e++) {
       const n = this.mediaQueries[e],
         i = String.prototype.split.call(n, ","),
-        s = window.matchMedia(i[0]),
-        a = i[1],
+        a = window.matchMedia(i[0]),
+        s = i[1],
         o = Array.prototype.filter.call(this.оbjects, function (t) {
-          return t.breakpoint === a;
+          return t.breakpoint === s;
         });
-      s.addListener(function () {
-        t.mediaHandler(s, o);
+      a.addListener(function () {
+        t.mediaHandler(a, o);
       }),
-        this.mediaHandler(s, o);
+        this.mediaHandler(a, o);
     }
   }),
     (t.prototype.mediaHandler = function (t, e) {
@@ -108,20 +108,42 @@
           });
     });
   new t("max").init();
-  var e = function () {
-    return (e =
+  let e = {
+    Android: function () {
+      return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+      return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function () {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function () {
+      return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function () {
+      return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function () {
+      return (
+        e.Android() || e.BlackBerry() || e.iOS() || e.Opera() || e.Windows()
+      );
+    },
+  };
+  var n = function () {
+    return (n =
       Object.assign ||
       function (t) {
         for (var e, n = 1, i = arguments.length; n < i; n++)
-          for (var s in (e = arguments[n]))
-            Object.prototype.hasOwnProperty.call(e, s) && (t[s] = e[s]);
+          for (var a in (e = arguments[n]))
+            Object.prototype.hasOwnProperty.call(e, a) && (t[a] = e[a]);
         return t;
       }).apply(this, arguments);
   };
   !(function () {
-    function t(t, n, i) {
-      var s = this;
-      (this.endVal = n),
+    function t(t, e, i) {
+      var a = this;
+      (this.endVal = e),
         (this.options = i),
         (this.version = "2.3.2"),
         (this.defaults = {
@@ -148,67 +170,67 @@
         (this.paused = !0),
         (this.once = !1),
         (this.count = function (t) {
-          s.startTime || (s.startTime = t);
-          var e = t - s.startTime;
-          (s.remaining = s.duration - e),
-            s.useEasing
-              ? s.countDown
-                ? (s.frameVal =
-                    s.startVal -
-                    s.easingFn(e, 0, s.startVal - s.endVal, s.duration))
-                : (s.frameVal = s.easingFn(
+          a.startTime || (a.startTime = t);
+          var e = t - a.startTime;
+          (a.remaining = a.duration - e),
+            a.useEasing
+              ? a.countDown
+                ? (a.frameVal =
+                    a.startVal -
+                    a.easingFn(e, 0, a.startVal - a.endVal, a.duration))
+                : (a.frameVal = a.easingFn(
                     e,
-                    s.startVal,
-                    s.endVal - s.startVal,
-                    s.duration
+                    a.startVal,
+                    a.endVal - a.startVal,
+                    a.duration
                   ))
-              : (s.frameVal =
-                  s.startVal + (s.endVal - s.startVal) * (e / s.duration));
-          var n = s.countDown ? s.frameVal < s.endVal : s.frameVal > s.endVal;
-          (s.frameVal = n ? s.endVal : s.frameVal),
-            (s.frameVal = Number(s.frameVal.toFixed(s.options.decimalPlaces))),
-            s.printValue(s.frameVal),
-            e < s.duration
-              ? (s.rAF = requestAnimationFrame(s.count))
-              : null !== s.finalEndVal
-              ? s.update(s.finalEndVal)
-              : s.callback && s.callback();
+              : (a.frameVal =
+                  a.startVal + (a.endVal - a.startVal) * (e / a.duration));
+          var n = a.countDown ? a.frameVal < a.endVal : a.frameVal > a.endVal;
+          (a.frameVal = n ? a.endVal : a.frameVal),
+            (a.frameVal = Number(a.frameVal.toFixed(a.options.decimalPlaces))),
+            a.printValue(a.frameVal),
+            e < a.duration
+              ? (a.rAF = requestAnimationFrame(a.count))
+              : null !== a.finalEndVal
+              ? a.update(a.finalEndVal)
+              : a.callback && a.callback();
         }),
         (this.formatNumber = function (t) {
           var e,
             n,
             i,
-            a,
+            s,
             o = t < 0 ? "-" : "";
-          e = Math.abs(t).toFixed(s.options.decimalPlaces);
+          e = Math.abs(t).toFixed(a.options.decimalPlaces);
           var r = (e += "").split(".");
           if (
             ((n = r[0]),
-            (i = r.length > 1 ? s.options.decimal + r[1] : ""),
-            s.options.useGrouping)
+            (i = r.length > 1 ? a.options.decimal + r[1] : ""),
+            a.options.useGrouping)
           ) {
-            a = "";
+            s = "";
             for (var l = 0, c = n.length; l < c; ++l)
-              0 !== l && l % 3 == 0 && (a = s.options.separator + a),
-                (a = n[c - l - 1] + a);
-            n = a;
+              0 !== l && l % 3 == 0 && (s = a.options.separator + s),
+                (s = n[c - l - 1] + s);
+            n = s;
           }
           return (
-            s.options.numerals &&
-              s.options.numerals.length &&
+            a.options.numerals &&
+              a.options.numerals.length &&
               ((n = n.replace(/[0-9]/g, function (t) {
-                return s.options.numerals[+t];
+                return a.options.numerals[+t];
               })),
               (i = i.replace(/[0-9]/g, function (t) {
-                return s.options.numerals[+t];
+                return a.options.numerals[+t];
               }))),
-            o + s.options.prefix + n + i + s.options.suffix
+            o + a.options.prefix + n + i + a.options.suffix
           );
         }),
         (this.easeOutExpo = function (t, e, n, i) {
           return (n * (1 - Math.pow(2, (-10 * t) / i)) * 1024) / 1023 + e;
         }),
-        (this.options = e(e({}, this.defaults), i)),
+        (this.options = n(n({}, this.defaults), i)),
         (this.formattingFn = this.options.formattingFn
           ? this.options.formattingFn
           : this.formatNumber),
@@ -217,7 +239,7 @@
           : this.easeOutExpo),
         (this.startVal = this.validateValue(this.options.startVal)),
         (this.frameVal = this.startVal),
-        (this.endVal = this.validateValue(n)),
+        (this.endVal = this.validateValue(e)),
         (this.options.decimalPlaces = Math.max(this.options.decimalPlaces)),
         this.resetDuration(),
         (this.options.separator = String(this.options.separator)),
@@ -233,7 +255,7 @@
             ? console.error(this.error, t)
             : ((window.onScrollFns = window.onScrollFns || []),
               window.onScrollFns.push(function () {
-                return s.handleScroll(s);
+                return a.handleScroll(a);
               }),
               (window.onscroll = function () {
                 window.onScrollFns.forEach(function (t) {
@@ -335,24 +357,24 @@
           (this.remaining = this.duration);
       });
   })();
-  let n = !1;
+  let i = !1;
   setTimeout(() => {
-    if (n) {
+    if (i) {
       let t = new Event("windowScroll");
       window.addEventListener("scroll", function (e) {
         document.dispatchEvent(t);
       });
     }
   }, 0);
-  const i = document.querySelectorAll("._anim-imtems"),
+  const a = document.querySelectorAll("._anim-imtems"),
     s = document.querySelectorAll(".range-percent"),
-    a = document.querySelectorAll("[data-box]");
-  if (i.length > 0) {
-    let u = !0;
-    function d() {
-      i.forEach((t) => {
+    o = document.querySelectorAll("[data-box]");
+  if (a.length > 0) {
+    let d = !0;
+    function h() {
+      a.forEach((t) => {
         const e = t.offsetHeight,
-          n = h(t).top;
+          n = p(t).top;
         let i = (window.innerHeight + e) / 1.1;
         if (
           window.scrollY > n - i &&
@@ -365,82 +387,80 @@
           t.classList.add("_active"),
             i.length > 0 &&
               i.forEach((t) => {
-                u &&
+                d &&
                   window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
                   t.classList.add("_active-range");
               }),
-            u &&
+            d &&
               window.scrollY > n.offsetHeight - 5 * e.offsetHeight &&
               s.length > 0 &&
               (s.forEach((t) => {
                 !(function (t, e, n) {
                   let i = 0,
-                    s = Math.round(e / t / 1),
-                    a = setInterval(() => {
-                      (i += 1), i == t && clearInterval(a), (n.innerHTML = i);
-                    }, s);
+                    a = Math.round(e / t / 1),
+                    s = setInterval(() => {
+                      (i += 1), i == t && clearInterval(s), (n.innerHTML = i);
+                    }, a);
                 })(t.getAttribute("data-percent"), 2e3, t);
               }),
-              (u = !1));
+              (d = !1));
         }
       }),
-        a.length > 0 &&
-          a.forEach((t) => {
+        o.length > 0 &&
+          o.forEach((t) => {
             const e = t.querySelector("[data-work]"),
-              n = h(t).top,
-              i = h(e).top,
-              s = h(document.querySelector("._last-work")).top;
+              n = p(t).top,
+              i = p(e).top,
+              a = p(document.querySelector("._last-work")).top;
             window.scrollY > i - 20
               ? e.classList.add("_stop")
               : window.scrollY < n - 20 && e.classList.remove("_stop"),
-              window.scrollY > s - 20 && e.classList.remove("_stop");
+              window.scrollY > a - 20 && e.classList.remove("_stop");
           });
     }
-    function h(t) {
+    function p(t) {
       const e = t.getBoundingClientRect(),
         n = window.pageXOffset || document.documentElement.scrollLeft,
         i = window.pageYOffset || document.documentElement.scrollTop;
       return { top: e.top + i, left: e.left + n };
     }
-    window.addEventListener("scroll", d),
+    window.addEventListener("scroll", h),
       setTimeout(() => {
-        d();
+        h();
       }, 300);
   }
-  document.querySelector(".cursor-big");
-  const o = document.querySelector(".cursor"),
-    r = document.querySelectorAll("a");
-  document.querySelectorAll("button");
-  r.forEach((t) => {
+  const r = document.querySelector(".cursor"),
+    l = document.querySelectorAll("a");
+  l.forEach((t) => {
     t.addEventListener("mouseover", () => {
-      o.classList.add("_active-cursor");
+      r.classList.add("_active-cursor");
     });
   }),
-    r.forEach((t) => {
+    l.forEach((t) => {
       t.addEventListener("mouseout", () => {
-        o.classList.remove("_active-cursor");
+        r.classList.remove("_active-cursor");
       });
     }),
     document.addEventListener("mousemove", (t) => {
-      o.style.cssText = "left:" + t.clientX + "px; top:" + t.clientY + "px";
+      r.style.cssText = "left:" + t.clientX + "px; top:" + t.clientY + "px";
     });
-  const l = document.querySelectorAll("._en"),
-    c = document.querySelectorAll("._ua");
+  const c = document.querySelectorAll("._en"),
+    u = document.querySelectorAll("._ua");
   document.addEventListener("click", (t) => {
     const e = t.target;
     e.classList.contains("button_lang") &&
       !e.classList.add("_active-lang") &&
       (e.classList.contains("_ua") && !e.classList.add("_active-lang")
-        ? (c.forEach((t) => {
+        ? (u.forEach((t) => {
             t.classList.add("_active-lang");
           }),
-          l.forEach((t) => {
+          c.forEach((t) => {
             t.classList.remove("_active-lang");
           }))
-        : (c.forEach((t) => {
+        : (u.forEach((t) => {
             t.classList.remove("_active-lang");
           }),
-          l.forEach((t) => {
+          c.forEach((t) => {
             t.classList.add("_active-lang");
           })));
   }),
@@ -456,5 +476,8 @@
     })(function (t) {
       let e = !0 === t ? "webp" : "no-webp";
       document.documentElement.classList.add(e);
-    });
+    }),
+    e.any() &&
+      (document.documentElement.classList.add("touch"),
+      document.querySelector(".cursor").classList.add("touch"));
 })();
