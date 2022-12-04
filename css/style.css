@@ -11992,6 +11992,9 @@ h6,
 .work__item_tasty {
   z-index: 3;
 }
+.work__item_jetbooking {
+  z-index: 4;
+}
 .work__content {
   padding: 100px;
   overflow: hidden;
