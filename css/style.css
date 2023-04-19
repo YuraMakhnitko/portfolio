@@ -11744,7 +11744,7 @@ h6,
 .skills__title-block {
   display: flex;
   flex-direction: column;
-  max-width: 635px;
+  max-width: 730px;
 }
 .skills__title-header {
   display: none;
@@ -11766,6 +11766,8 @@ h6,
 }
 .skills__title-text._active-lang {
   display: inline-block;
+  width: 100%;
+  text-align: justify;
 }
 .skills__items {
   padding-top: 40px;
